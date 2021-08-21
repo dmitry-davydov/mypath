@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A387BD626D1190B008434E9 /* MoveEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A387BD526D1190B008434E9 /* MoveEntry.swift */; };
 		0A739F7F26CD8ABE00A86505 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A739F7E26CD8ABE00A86505 /* AppConfiguration.swift */; };
 		0A739F8126CD8B9C00A86505 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A739F8026CD8B9C00A86505 /* MainView.swift */; };
 		0A739F8526CD8D4D00A86505 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A739F8426CD8D4D00A86505 /* LocationService.swift */; };
@@ -19,10 +20,22 @@
 		0AD5B25126CD8600006C7AD3 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD5B25026CD8600006C7AD3 /* MainViewController.swift */; };
 		0AD5B25626CD8601006C7AD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AD5B25526CD8601006C7AD3 /* Assets.xcassets */; };
 		0AD5B25926CD8601006C7AD3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AD5B25726CD8601006C7AD3 /* LaunchScreen.storyboard */; };
+		0ADB958226D11A1700CABAA4 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 0ADB958126D11A1700CABAA4 /* Realm */; };
+		0ADB958426D11A1700CABAA4 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0ADB958326D11A1700CABAA4 /* RealmSwift */; };
+		0ADB958626D11A4000CABAA4 /* MoveEntryPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADB958526D11A4000CABAA4 /* MoveEntryPath.swift */; };
+		0ADB958926D11C9600CABAA4 /* TrackingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADB958826D11C9600CABAA4 /* TrackingListViewController.swift */; };
+		0ADB958C26D11DDE00CABAA4 /* TrackingListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADB958B26D11DDE00CABAA4 /* TrackingListTableViewCell.swift */; };
+		0ADB958E26D11E3900CABAA4 /* UITableViewCell+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADB958D26D11E3900CABAA4 /* UITableViewCell+.swift */; };
+		0ADB959026D11F4B00CABAA4 /* TrackingListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADB958F26D11F4B00CABAA4 /* TrackingListViewModel.swift */; };
+		0ADB959226D1207600CABAA4 /* TrackingListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADB959126D1207600CABAA4 /* TrackingListInteractor.swift */; };
+		0ADB959426D1261400CABAA4 /* TrackingListFlowPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADB959326D1261400CABAA4 /* TrackingListFlowPresenter.swift */; };
+		0ADB959626D1313D00CABAA4 /* TrackingListFlowFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADB959526D1313D00CABAA4 /* TrackingListFlowFactory.swift */; };
+		0ADB959826D13BD200CABAA4 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADB959726D13BD200CABAA4 /* RealmManager.swift */; };
 		B4FC562F07AE2612EEA483F0 /* Pods_MyPath.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9A873C14F4795DF3A24EC38 /* Pods_MyPath.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A387BD526D1190B008434E9 /* MoveEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveEntry.swift; sourceTree = "<group>"; };
 		0A739F7E26CD8ABE00A86505 /* AppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
 		0A739F8026CD8B9C00A86505 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		0A739F8426CD8D4D00A86505 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
@@ -37,6 +50,15 @@
 		0AD5B25526CD8601006C7AD3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0AD5B25826CD8601006C7AD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0AD5B25A26CD8601006C7AD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0ADB958526D11A4000CABAA4 /* MoveEntryPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveEntryPath.swift; sourceTree = "<group>"; };
+		0ADB958826D11C9600CABAA4 /* TrackingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingListViewController.swift; sourceTree = "<group>"; };
+		0ADB958B26D11DDE00CABAA4 /* TrackingListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingListTableViewCell.swift; sourceTree = "<group>"; };
+		0ADB958D26D11E3900CABAA4 /* UITableViewCell+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+.swift"; sourceTree = "<group>"; };
+		0ADB958F26D11F4B00CABAA4 /* TrackingListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingListViewModel.swift; sourceTree = "<group>"; };
+		0ADB959126D1207600CABAA4 /* TrackingListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingListInteractor.swift; sourceTree = "<group>"; };
+		0ADB959326D1261400CABAA4 /* TrackingListFlowPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingListFlowPresenter.swift; sourceTree = "<group>"; };
+		0ADB959526D1313D00CABAA4 /* TrackingListFlowFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingListFlowFactory.swift; sourceTree = "<group>"; };
+		0ADB959726D13BD200CABAA4 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		7D003A2BCECADD128B27253E /* Pods-MyPath.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyPath.release.xcconfig"; path = "Target Support Files/Pods-MyPath/Pods-MyPath.release.xcconfig"; sourceTree = "<group>"; };
 		A9A873C14F4795DF3A24EC38 /* Pods_MyPath.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyPath.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE71FE27BD4461B1F9D84129 /* Pods-MyPath.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyPath.debug.xcconfig"; path = "Target Support Files/Pods-MyPath/Pods-MyPath.debug.xcconfig"; sourceTree = "<group>"; };
@@ -47,6 +69,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0ADB958426D11A1700CABAA4 /* RealmSwift in Frameworks */,
+				0ADB958226D11A1700CABAA4 /* Realm in Frameworks */,
 				B4FC562F07AE2612EEA483F0 /* Pods_MyPath.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -54,11 +78,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A387BD426D118CA008434E9 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				0A387BD526D1190B008434E9 /* MoveEntry.swift */,
+				0ADB958526D11A4000CABAA4 /* MoveEntryPath.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
 		0A739F8226CD8C8A00A86505 /* Core */ = {
 			isa = PBXGroup;
 			children = (
 				0A739F8626CD8F4600A86505 /* Extentions */,
 				0A739F8326CD8C8F00A86505 /* Location */,
+				0ADB959726D13BD200CABAA4 /* RealmManager.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -75,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				0A739F8726CD8F5F00A86505 /* Notification.Name+.swift */,
+				0ADB958D26D11E3900CABAA4 /* UITableViewCell+.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -83,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				0A739F8C26CD93C200A86505 /* MainFlowFactory.swift */,
+				0ADB959526D1313D00CABAA4 /* TrackingListFlowFactory.swift */,
 			);
 			path = Factories;
 			sourceTree = "<group>";
@@ -119,6 +155,7 @@
 		0AD5B26026CD8713006C7AD3 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				0A387BD426D118CA008434E9 /* Entities */,
 				0A739F8B26CD93B600A86505 /* Factories */,
 				0AD5B26326CD8761006C7AD3 /* Flow */,
 				0AD5B24E26CD8600006C7AD3 /* SceneDelegate.swift */,
@@ -148,6 +185,7 @@
 		0AD5B26326CD8761006C7AD3 /* Flow */ = {
 			isa = PBXGroup;
 			children = (
+				0ADB958726D11C7D00CABAA4 /* TrackingList */,
 				0AD5B26426CD8768006C7AD3 /* Main */,
 			);
 			path = Flow;
@@ -162,6 +200,26 @@
 				0A739F8E26CD9D2300A86505 /* MainFlowPresenter.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		0ADB958726D11C7D00CABAA4 /* TrackingList */ = {
+			isa = PBXGroup;
+			children = (
+				0ADB958A26D11DC700CABAA4 /* Cell */,
+				0ADB958826D11C9600CABAA4 /* TrackingListViewController.swift */,
+				0ADB958F26D11F4B00CABAA4 /* TrackingListViewModel.swift */,
+				0ADB959126D1207600CABAA4 /* TrackingListInteractor.swift */,
+				0ADB959326D1261400CABAA4 /* TrackingListFlowPresenter.swift */,
+			);
+			path = TrackingList;
+			sourceTree = "<group>";
+		};
+		0ADB958A26D11DC700CABAA4 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				0ADB958B26D11DDE00CABAA4 /* TrackingListTableViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		5C2475F22D6FF9E116AE2F1D /* Frameworks */ = {
@@ -200,6 +258,10 @@
 			dependencies = (
 			);
 			name = MyPath;
+			packageProductDependencies = (
+				0ADB958126D11A1700CABAA4 /* Realm */,
+				0ADB958326D11A1700CABAA4 /* RealmSwift */,
+			);
 			productName = MyPath;
 			productReference = 0AD5B24926CD8600006C7AD3 /* MyPath.app */;
 			productType = "com.apple.product-type.application";
@@ -227,6 +289,9 @@
 				Base,
 			);
 			mainGroup = 0AD5B24026CD8600006C7AD3;
+			packageReferences = (
+				0ADB958026D11A1700CABAA4 /* XCRemoteSwiftPackageReference "realm-cocoa" */,
+			);
 			productRefGroup = 0AD5B24A26CD8600006C7AD3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -312,14 +377,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0ADB958626D11A4000CABAA4 /* MoveEntryPath.swift in Sources */,
+				0ADB959426D1261400CABAA4 /* TrackingListFlowPresenter.swift in Sources */,
+				0ADB959026D11F4B00CABAA4 /* TrackingListViewModel.swift in Sources */,
 				0A739F8D26CD93C200A86505 /* MainFlowFactory.swift in Sources */,
+				0ADB959226D1207600CABAA4 /* TrackingListInteractor.swift in Sources */,
 				0A739F8826CD8F5F00A86505 /* Notification.Name+.swift in Sources */,
+				0ADB958E26D11E3900CABAA4 /* UITableViewCell+.swift in Sources */,
 				0AD5B25126CD8600006C7AD3 /* MainViewController.swift in Sources */,
+				0ADB958C26D11DDE00CABAA4 /* TrackingListTableViewCell.swift in Sources */,
+				0A387BD626D1190B008434E9 /* MoveEntry.swift in Sources */,
 				0AD5B24D26CD8600006C7AD3 /* AppDelegate.swift in Sources */,
 				0A739F8A26CD937100A86505 /* MainFlowInteractor.swift in Sources */,
 				0A739F8F26CD9D2300A86505 /* MainFlowPresenter.swift in Sources */,
+				0ADB959626D1313D00CABAA4 /* TrackingListFlowFactory.swift in Sources */,
 				0A739F8126CD8B9C00A86505 /* MainView.swift in Sources */,
 				0A739F7F26CD8ABE00A86505 /* AppConfiguration.swift in Sources */,
+				0ADB958926D11C9600CABAA4 /* TrackingListViewController.swift in Sources */,
+				0ADB959826D13BD200CABAA4 /* RealmManager.swift in Sources */,
 				0A739F8526CD8D4D00A86505 /* LocationService.swift in Sources */,
 				0AD5B24F26CD8600006C7AD3 /* SceneDelegate.swift in Sources */,
 			);
@@ -517,6 +592,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0ADB958026D11A1700CABAA4 /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-cocoa.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.12.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0ADB958126D11A1700CABAA4 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0ADB958026D11A1700CABAA4 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = Realm;
+		};
+		0ADB958326D11A1700CABAA4 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0ADB958026D11A1700CABAA4 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0AD5B24126CD8600006C7AD3 /* Project object */;
 }
