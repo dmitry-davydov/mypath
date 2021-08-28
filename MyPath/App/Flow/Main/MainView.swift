@@ -93,7 +93,7 @@ extension MainView: MainFlowViewLogic {
             mapView.animate(to: cameraPosition)
         }
         
-        viewModel.pathList.map { vm in
+        viewModel.pathList.forEach { vm in
             routePath.add(CLLocationCoordinate2D(latitude: vm.coordinates.latitude, longitude: vm.coordinates.longitude))
         }
         

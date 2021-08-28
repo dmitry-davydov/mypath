@@ -9,18 +9,23 @@ import UIKit
 
 protocol TrackingListFlowPresenterProtocol {
     func present(_ response: TrackingListModel.MoveEntries.Response)
-    func present(_ request: UIViewController)
+    func present(_ response: TrackingListModel.Track.ResponseHistory)
+    func present(_ response: TrackingListModel.Track.ResponseNewTrack)
 }
 
 class TrackingListFlowPresenter: TrackingListFlowPresenterProtocol {
     
-    weak var viewController: (UIViewController & TrackingListFlowDisplayLogic)?
+    weak var viewController: TrackingListFlowDisplayLogic?
     
     func present(_ response: TrackingListModel.MoveEntries.Response) {
-        viewController?.display(response)
+        viewController?.display(TrackingListModel.MoveEntries.Response(items: response.items))
     }
     
-    func present(_ request: UIViewController) {
-        viewController?.display(request)
+    func present(_ response: TrackingListModel.Track.ResponseHistory) {
+        viewController?.display(TrackingListModel.ViewModel.ViewModelHistory(item: MainViewController.State.view(response.item)))
+    }
+    
+    func present(_ response: TrackingListModel.Track.ResponseNewTrack) {
+        viewController?.display(TrackingListModel.ViewModel.ViewModelNewTrack(item: MainViewController.State.tracking(response.item)))
     }
 }
