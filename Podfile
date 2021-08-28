@@ -7,7 +7,6 @@ target 'MyPath' do
 
   # Pods for MyPath
   pod 'SnapKit', '~> 5.0.0'
-  pod 'Realm', '~> 10.12'
   pod 'GoogleMaps', '5.1.0'
 
 end

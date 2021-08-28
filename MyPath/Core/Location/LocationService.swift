@@ -20,11 +20,18 @@ class LocationService: NSObject {
     }
     
     private func configure() {
+        
         locationManager.requestWhenInUseAuthorization()
+        locationManager.allowsBackgroundLocationUpdates = true
+        locationManager.requestAlwaysAuthorization()
+        locationManager.pausesLocationUpdatesAutomatically = false
+        locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+        
         locationManager.delegate = self
     }
 }
 
+// MARK: - CLLocationManagerDelegat
 extension LocationService: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

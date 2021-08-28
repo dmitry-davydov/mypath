@@ -17,8 +17,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: scene)
         window?.backgroundColor = .white
         
-     
-        let rootViewController = MainFlowFactory().construct()
+     let rootViewController = TrackingListFlowFactory().construct()
+//        let rootViewController = MainFlowFactory().construct()
         let navigationViewController = UINavigationController(rootViewController: rootViewController)
         
         window?.rootViewController = navigationViewController

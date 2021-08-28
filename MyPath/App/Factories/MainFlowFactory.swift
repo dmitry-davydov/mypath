@@ -9,14 +9,14 @@ import Foundation
 
 
 protocol MainFlowFactoryProtocol {
-    func construct() -> MainViewController
+    func construct(state: MainViewController.State) -> MainViewController
 }
 
 class MainFlowFactory: MainFlowFactoryProtocol {
     
-    func construct() -> MainViewController {
+    func construct(state: MainViewController.State) -> MainViewController {
         
-        let mainFlowViewController = MainViewController()
+        let mainFlowViewController = MainViewController(state: state)
         let presenter = MainFlowPresenter()
         presenter.viewController = mainFlowViewController
         
