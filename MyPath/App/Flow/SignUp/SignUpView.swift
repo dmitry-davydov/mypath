@@ -43,7 +43,7 @@ class SignUpView: UIView {
     }()
     
     private let signUpButton: UIButton = {
-        let view = UIButton(type: .system)
+        let view = AppUIButton(type: .system)
         view.setTitle("Sign Up", for: .normal)
         view.addTarget(self, action: #selector(onSignUpTap(_:)), for: .touchUpInside)
         
@@ -51,8 +51,8 @@ class SignUpView: UIView {
     }()
     
     private let signInButton: UIButton = {
-        let view = UIButton(type: .system)
-        view.setTitle("SignIn", for: .normal)
+        let view = AppUIButton(type: .system)
+        view.setTitle("Sign In", for: .normal)
         view.addTarget(self, action: #selector(onSignInTap(_:)), for: .touchUpInside)
         
         return view
@@ -101,12 +101,12 @@ class SignUpView: UIView {
         
         signUpButton.snp.makeConstraints { make in
             make.centerX.equalTo(self.snp.centerX)
-            make.leading.trailing.equalToSuperview().inset(80)
+            make.leading.trailing.equalToSuperview().inset(160)
             make.top.equalTo(passwordView.snp.bottom).offset(16)
         }
         
         signInButton.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(80)
+            make.leading.trailing.equalToSuperview().inset(160)
             make.centerX.equalTo(self.snp.centerX)
             make.top.equalTo(signUpButton.snp.bottom).offset(8)
         }

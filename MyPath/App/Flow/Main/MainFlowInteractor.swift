@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreLocation
+import RxSwift
 
 enum MainFlowViewModel {
     enum Tracking {
@@ -79,15 +80,30 @@ class MainFlowInteractor: MainFlowLogicProtocol, MainFlowDataSource {
     internal var moveEntryModel: MoveEntry?
     internal var trackPathHistory: [CLLocationCoordinate2D] = []
     
+    internal var subscription: Disposable?
+    
     init(locationService: LocationService) {
         self.locationService = locationService
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(locationDidUpdated), name: Notification.Name.Location.DidUpdated, object: nil)
+        configureLocationObserver()
     }
     
     deinit {
-        NotificationCenter.default.removeObserver(self)
+        subscription?.dispose()
     }
+    
+    private func configureLocationObserver() {
+        subscription = self.locationService?.location.subscribe(onNext: { [weak self] coordinates in
+            guard let coordinates = coordinates else { return }
+            self?.locationDidUpdated(coordinates)
+        }, onError: { error in
+            print(error.localizedDescription)
+        }, onCompleted: {
+            print("completed")
+        }, onDisposed: {
+            print("desposed")
+        })
+    }
+    
     
     func request(_ request: MainFlowViewModel.Location.RequestCurrent) {
         
@@ -144,20 +160,16 @@ class MainFlowInteractor: MainFlowLogicProtocol, MainFlowDataSource {
             )
         )
     }
-    
-    //MARK: - NotificationCenter Observers
-    @objc private func locationDidUpdated(_ notification: NSNotification) {
-        
-        guard let lat = notification.userInfo?["lat"] as? CLLocationDegrees,
-              let lon = notification.userInfo?["lon"] as? CLLocationDegrees else { return }
+
+    private func locationDidUpdated(_ coodrinates: CLLocationCoordinate2D) {
         
         if trackingState == .on {
             
             try! RealmManager.shared.db.write({
                 moveEntryModel?.pathList.append(
                     MoveEntryPath(
-                        latitude: Double(lat),
-                        longitude: Double(lon),
+                        latitude: Double(coodrinates.latitude),
+                        longitude: Double(coodrinates.longitude),
                         date: Date()
                     )
                 )
@@ -166,8 +178,8 @@ class MainFlowInteractor: MainFlowLogicProtocol, MainFlowDataSource {
         
         presenter?.present(
             response: MainFlowViewModel.Location.ResponseCurrent(
-                latitude: lat,
-                longitude: lon
+                latitude: coodrinates.latitude,
+                longitude: coodrinates.longitude
             )
         )
     }

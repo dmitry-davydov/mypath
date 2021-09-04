@@ -43,7 +43,10 @@ class MainView: UIView {
     
     private func layout() {
         mapView.snp.makeConstraints({make in
-            make.edges.equalToSuperview()
+            make.top.equalTo(self.safeAreaLayoutGuide.snp.top)
+            make.bottom.equalToSuperview()
+            make.trailing.equalToSuperview()
+            make.leading.equalToSuperview()
         })
     }
 }

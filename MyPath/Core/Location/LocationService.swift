@@ -7,11 +7,15 @@
 
 import Foundation
 import CoreLocation
+import RxSwift
+import RxRelay
 
 class LocationService: NSObject {
     static var shared = LocationService()
     
     let locationManager: CLLocationManager = CLLocationManager()
+
+    let location: BehaviorRelay<CLLocationCoordinate2D?> = BehaviorRelay(value: nil)
     
     override private init() {
         super.init()
@@ -36,14 +40,8 @@ extension LocationService: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let lastLocation = locations.last else { return }
-        NotificationCenter.default.post(
-            name: Notification.Name.Location.DidUpdated,
-            object: nil,
-            userInfo: [
-                "lat": lastLocation.coordinate.latitude,
-                "lon": lastLocation.coordinate.longitude
-            ]
-        )
+        
+        location.accept(lastLocation.coordinate)
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0A387BD626D1190B008434E9 /* MoveEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A387BD526D1190B008434E9 /* MoveEntry.swift */; };
+		0A38C66826E373D20019D482 /* AppUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A38C66726E373D20019D482 /* AppUIButton.swift */; };
 		0A62A38C26DA34A0001A1268 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A62A38B26DA34A0001A1268 /* User.swift */; };
 		0A62A38F26DA36B4001A1268 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A62A38E26DA36B4001A1268 /* AuthService.swift */; };
 		0A62A39426DA390D001A1268 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A62A39326DA390D001A1268 /* UserRepository.swift */; };
@@ -41,6 +42,10 @@
 		0A739F8A26CD937100A86505 /* MainFlowInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A739F8926CD937100A86505 /* MainFlowInteractor.swift */; };
 		0A739F8D26CD93C200A86505 /* MainFlowFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A739F8C26CD93C200A86505 /* MainFlowFactory.swift */; };
 		0A739F8F26CD9D2300A86505 /* MainFlowPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A739F8E26CD9D2300A86505 /* MainFlowPresenter.swift */; };
+		0AA4A73626E3636E005AB4EA /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = 0AA4A73526E3636E005AB4EA /* RxBlocking */; };
+		0AA4A73826E3636E005AB4EA /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 0AA4A73726E3636E005AB4EA /* RxCocoa */; };
+		0AA4A73A26E3636E005AB4EA /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 0AA4A73926E3636E005AB4EA /* RxRelay */; };
+		0AA4A73C26E3636E005AB4EA /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0AA4A73B26E3636E005AB4EA /* RxSwift */; };
 		0AD5B24D26CD8600006C7AD3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD5B24C26CD8600006C7AD3 /* AppDelegate.swift */; };
 		0AD5B24F26CD8600006C7AD3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD5B24E26CD8600006C7AD3 /* SceneDelegate.swift */; };
 		0AD5B25126CD8600006C7AD3 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD5B25026CD8600006C7AD3 /* MainViewController.swift */; };
@@ -62,6 +67,7 @@
 
 /* Begin PBXFileReference section */
 		0A387BD526D1190B008434E9 /* MoveEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveEntry.swift; sourceTree = "<group>"; };
+		0A38C66726E373D20019D482 /* AppUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUIButton.swift; sourceTree = "<group>"; };
 		0A62A38B26DA34A0001A1268 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0A62A38E26DA36B4001A1268 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		0A62A39326DA390D001A1268 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
@@ -121,9 +127,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AA4A73A26E3636E005AB4EA /* RxRelay in Frameworks */,
 				0ADB958426D11A1700CABAA4 /* RealmSwift in Frameworks */,
+				0AA4A73626E3636E005AB4EA /* RxBlocking in Frameworks */,
+				0AA4A73826E3636E005AB4EA /* RxCocoa in Frameworks */,
 				0ADB958226D11A1700CABAA4 /* Realm in Frameworks */,
 				B4FC562F07AE2612EEA483F0 /* Pods_MyPath.framework in Frameworks */,
+				0AA4A73C26E3636E005AB4EA /* RxSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,6 +148,14 @@
 				0A62A38B26DA34A0001A1268 /* User.swift */,
 			);
 			path = Entities;
+			sourceTree = "<group>";
+		};
+		0A38C66626E373BD0019D482 /* Atoms */ = {
+			isa = PBXGroup;
+			children = (
+				0A38C66726E373D20019D482 /* AppUIButton.swift */,
+			);
+			path = Atoms;
 			sourceTree = "<group>";
 		};
 		0A62A38D26DA369D001A1268 /* Services */ = {
@@ -267,6 +285,7 @@
 		0AD5B26026CD8713006C7AD3 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				0A38C66626E373BD0019D482 /* Atoms */,
 				0A62A39226DA38FC001A1268 /* Repositories */,
 				0A62A38D26DA369D001A1268 /* Services */,
 				0A387BD426D118CA008434E9 /* Entities */,
@@ -379,6 +398,10 @@
 			packageProductDependencies = (
 				0ADB958126D11A1700CABAA4 /* Realm */,
 				0ADB958326D11A1700CABAA4 /* RealmSwift */,
+				0AA4A73526E3636E005AB4EA /* RxBlocking */,
+				0AA4A73726E3636E005AB4EA /* RxCocoa */,
+				0AA4A73926E3636E005AB4EA /* RxRelay */,
+				0AA4A73B26E3636E005AB4EA /* RxSwift */,
 			);
 			productName = MyPath;
 			productReference = 0AD5B24926CD8600006C7AD3 /* MyPath.app */;
@@ -409,6 +432,7 @@
 			mainGroup = 0AD5B24026CD8600006C7AD3;
 			packageReferences = (
 				0ADB958026D11A1700CABAA4 /* XCRemoteSwiftPackageReference "realm-cocoa" */,
+				0AA4A73426E3636E005AB4EA /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = 0AD5B24A26CD8600006C7AD3 /* Products */;
 			projectDirPath = "";
@@ -521,6 +545,7 @@
 				0AD5B24D26CD8600006C7AD3 /* AppDelegate.swift in Sources */,
 				0A739F8A26CD937100A86505 /* MainFlowInteractor.swift in Sources */,
 				0A62A3AA26DA7364001A1268 /* ResetPasswordViewController.swift in Sources */,
+				0A38C66826E373D20019D482 /* AppUIButton.swift in Sources */,
 				0A62A3AC26DA7C97001A1268 /* ResetPasswordModels.swift in Sources */,
 				0A62A3C126DA90A8001A1268 /* SignUpCoordinator.swift in Sources */,
 				0A62A39426DA390D001A1268 /* UserRepository.swift in Sources */,
@@ -738,6 +763,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		0AA4A73426E3636E005AB4EA /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
 		0ADB958026D11A1700CABAA4 /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-cocoa.git";
@@ -749,6 +782,26 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		0AA4A73526E3636E005AB4EA /* RxBlocking */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0AA4A73426E3636E005AB4EA /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxBlocking;
+		};
+		0AA4A73726E3636E005AB4EA /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0AA4A73426E3636E005AB4EA /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		0AA4A73926E3636E005AB4EA /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0AA4A73426E3636E005AB4EA /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		0AA4A73B26E3636E005AB4EA /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0AA4A73426E3636E005AB4EA /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
 		0ADB958126D11A1700CABAA4 /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 0ADB958026D11A1700CABAA4 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
