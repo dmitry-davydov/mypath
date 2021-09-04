@@ -8,9 +8,10 @@
 import UIKit
 import SnapKit
 
-protocol TrackingListFlowDisplayLogic {
+protocol TrackingListFlowDisplayLogic: AnyObject {
     func display(_ viewModel: TrackingListModel.MoveEntries.Response)
-    func display(_ viewController: UIViewController)
+    func display(_ viewModel: TrackingListModel.ViewModel.ViewModelHistory)
+    func display(_ viewModel: TrackingListModel.ViewModel.ViewModelNewTrack)
 }
 
 class TrackingListViewController: UIViewController {
@@ -24,6 +25,9 @@ class TrackingListViewController: UIViewController {
     private var dataSource: [MoveEntry] = []
     
     var interactor: TrackingFlowLogicProtocol?
+    
+    var onSelect: ((MainViewController.State) -> Void)?
+    var onNewTracking: ((MainViewController.State) -> Void)?
     
     // MARK: - Properties
     private lazy var tableView: UITableView = {
@@ -71,7 +75,7 @@ class TrackingListViewController: UIViewController {
     
     // MARK: actions
     @objc private func startNewTrackingAction() {
-        interactor?.request(TrackingListModel.NewMove.Request())
+        interactor?.request(TrackingListModel.Track.RequestNewTrack())
     }
 }
 
@@ -101,19 +105,24 @@ extension TrackingListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let viewModel = dataSource[indexPath.row]
-        interactor?.request(TrackingListModel.MoveEntries.HistoryRequest(item: viewModel))
+        
+        interactor?.request(TrackingListModel.Track.RequestHistory(item: viewModel))
     }
 }
 
 // MARK: - TrackingListFlowDisplayLogic
 extension TrackingListViewController: TrackingListFlowDisplayLogic {
+    func display(_ viewModel: TrackingListModel.ViewModel.ViewModelHistory) {
+        onSelect?(viewModel.item)
+    }
+    
+    func display(_ viewModel: TrackingListModel.ViewModel.ViewModelNewTrack) {
+        onNewTracking?(viewModel.item)
+    }
+    
     func display(_ viewModel: TrackingListModel.MoveEntries.Response) {
         dataSource = viewModel.items
         tableView.reloadData()
-    }
-    
-    func display(_ viewController: UIViewController) {
-        navigationController?.pushViewController(viewController, animated: true)
     }
 }
 

@@ -9,13 +9,14 @@ import UIKit
 
 protocol TrackingFlowLogicProtocol {
     func request(_ request: TrackingListModel.MoveEntries.Request)
-    func request(_ request: TrackingListModel.NewMove.Request)
-    func request(_ request: TrackingListModel.MoveEntries.HistoryRequest)
+    func request(_ request: TrackingListModel.Track.RequestNewTrack)
+    func request(_ request: TrackingListModel.Track.RequestHistory)
 }
 
 protocol TrackingFlowDisplayLogicProtocol {
-    func present(_ request: TrackingListModel.MoveEntries.Response)
-    func present(_ request: UIViewController)
+    func present(_ response: TrackingListModel.MoveEntries.Response)
+    func present(_ response: TrackingListModel.Track.ResponseHistory)
+    func present(_ response: TrackingListModel.Track.ResponseNewTrack)
 }
 
 class TrackingListInteractor: TrackingFlowLogicProtocol {
@@ -32,7 +33,7 @@ class TrackingListInteractor: TrackingFlowLogicProtocol {
         presenter?.present(TrackingListModel.MoveEntries.Response(items: moveEntries.map({$0})))
     }
     
-    func request(_ request: TrackingListModel.NewMove.Request) {
+    func request(_ request: TrackingListModel.Track.RequestNewTrack) {
         let newMoveEntry = MoveEntry(startAt: Date())
         
         // создать новую запась в БД
@@ -40,15 +41,10 @@ class TrackingListInteractor: TrackingFlowLogicProtocol {
             RealmManager.shared.db.add(newMoveEntry)
         })
         
-        // передать стейт, что будет производится сразу трекинг
-        let mapViewController = MainFlowFactory().construct(state: .tracking(newMoveEntry))
-        
-        // показать экран с картой
-        presenter?.present(mapViewController)
+        presenter?.present(TrackingListModel.Track.ResponseNewTrack(item: newMoveEntry))
     }
     
-    func request(_ request: TrackingListModel.MoveEntries.HistoryRequest) {
-        let mapViewController = MainFlowFactory().construct(state: .view(request.item))
-        presenter?.present(mapViewController)
+    func request(_ request: TrackingListModel.Track.RequestHistory) {
+        presenter?.present(TrackingListModel.Track.ResponseHistory(item: request.item))
     }
 }

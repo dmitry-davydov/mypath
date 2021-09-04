@@ -10,6 +10,7 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
+    var coordinator: BaseCoordinator?
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let scene = (scene as? UIWindowScene) else { return }
@@ -17,11 +18,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: scene)
         window?.backgroundColor = .white
         
-     let rootViewController = TrackingListFlowFactory().construct()
-//        let rootViewController = MainFlowFactory().construct()
-        let navigationViewController = UINavigationController(rootViewController: rootViewController)
-        
-        window?.rootViewController = navigationViewController
         window?.makeKeyAndVisible()
+        
+        coordinator = AuthCoordinator()
+        coordinator?.start()
     }
 }
