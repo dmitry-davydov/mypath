@@ -23,6 +23,7 @@ class ResetPasswordView: UIView {
         view.placeholder = "Email"
         view.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 8, height: 32))
         view.leftViewMode = .always
+        view.autocorrectionType = .no
         
         return view
     }()
@@ -36,6 +37,7 @@ class ResetPasswordView: UIView {
         view.placeholder = "Password"
         view.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 8, height: 32))
         view.leftViewMode = .always
+        view.autocorrectionType = .no
         return view
     }()
     
