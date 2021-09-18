@@ -31,9 +31,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         print("applicationWillTerminate")
         UserNotificationManager.shared.add(
-            notificationBuilder: UserNotificationRequestBuilder(
-                notificationKind: UserNotifications.checkLastPath,
-                trigger: UserNotificationTrigger.timeInterval(seconds: 30, repeats: false)
+            notificationBuilder: AppUserNotificationRequestBuilder(
+                notificationKind: AppUserNotifications.checkLastPath,
+                trigger: AppUserNotificationTrigger.timeInterval(seconds: 30, repeats: false)
             )
         )
     }

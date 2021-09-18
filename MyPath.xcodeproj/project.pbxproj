@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0A04BFD126F632600054056E /* UserNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A04BFD026F632600054056E /* UserNotificationManager.swift */; };
 		0A04BFD426F63EB00054056E /* UserNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A04BFD326F63EB00054056E /* UserNotifications.swift */; };
+		0A04BFDB26F650960054056E /* AppNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A04BFDA26F650960054056E /* AppNotifications.swift */; };
 		0A387BD626D1190B008434E9 /* MoveEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A387BD526D1190B008434E9 /* MoveEntry.swift */; };
 		0A38C66826E373D20019D482 /* AppUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A38C66726E373D20019D482 /* AppUIButton.swift */; };
 		0A62A38C26DA34A0001A1268 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A62A38B26DA34A0001A1268 /* User.swift */; };
@@ -70,6 +71,7 @@
 /* Begin PBXFileReference section */
 		0A04BFD026F632600054056E /* UserNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotificationManager.swift; sourceTree = "<group>"; };
 		0A04BFD326F63EB00054056E /* UserNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotifications.swift; sourceTree = "<group>"; };
+		0A04BFDA26F650960054056E /* AppNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNotifications.swift; sourceTree = "<group>"; };
 		0A387BD526D1190B008434E9 /* MoveEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveEntry.swift; sourceTree = "<group>"; };
 		0A38C66726E373D20019D482 /* AppUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUIButton.swift; sourceTree = "<group>"; };
 		0A62A38B26DA34A0001A1268 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -151,6 +153,14 @@
 				0A04BFD326F63EB00054056E /* UserNotifications.swift */,
 			);
 			path = UserNotifications;
+			sourceTree = "<group>";
+		};
+		0A04BFD926F650890054056E /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				0A04BFDA26F650960054056E /* AppNotifications.swift */,
+			);
+			path = Notifications;
 			sourceTree = "<group>";
 		};
 		0A387BD426D118CA008434E9 /* Entities */ = {
@@ -299,6 +309,7 @@
 		0AD5B26026CD8713006C7AD3 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				0A04BFD926F650890054056E /* Notifications */,
 				0A38C66626E373BD0019D482 /* Atoms */,
 				0A62A39226DA38FC001A1268 /* Repositories */,
 				0A62A38D26DA369D001A1268 /* Services */,
@@ -569,6 +580,7 @@
 				0ADB959626D1313D00CABAA4 /* TrackingListFlowFactory.swift in Sources */,
 				0A62A3A626DA619F001A1268 /* AuthView.swift in Sources */,
 				0A62A39A26DA4447001A1268 /* AuthInteractor.swift in Sources */,
+				0A04BFDB26F650960054056E /* AppNotifications.swift in Sources */,
 				0A62A3BD26DA8DDC001A1268 /* SignUpView.swift in Sources */,
 				0A62A3B226DA7E8D001A1268 /* ResetPasswordFlowFactory.swift in Sources */,
 				0A739F8126CD8B9C00A86505 /* MainView.swift in Sources */,

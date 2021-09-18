@@ -22,7 +22,7 @@ final class UserNotificationManager {
         }
     }
     
-    func add(notificationBuilder: UserNotificationRequestBuilder) {
+    func add(notificationBuilder: AppUserNotificationRequestBuilder) {
         userNotificationCenter.add(notificationBuilder.build()) { error in
             if let error = error {
                 debugPrint("Notification center add error: \(error.localizedDescription)")
@@ -31,7 +31,7 @@ final class UserNotificationManager {
         print("Notification added")
     }
     
-    func remove(by identifier: UserNotificationIdentifiable) {
+    func remove(by identifier: AppUserNotificationIdentifiable) {
         print("Remove pending notification by \(identifier.identifier)")
         userNotificationCenter.removePendingNotificationRequests(withIdentifiers: [identifier.identifier])
     }

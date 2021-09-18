@@ -8,43 +8,22 @@
 import Foundation
 import UserNotifications
 
-protocol UserNotificationContentProtocol {
+protocol AppUserNotificationContentProtocol {
     var content: UNNotificationContent { get }
 }
 
-protocol UserNotificationIdentifiable {
+protocol AppUserNotificationIdentifiable {
     var identifier: String { get }
 }
 
-protocol UserNotificationProtocol: UserNotificationContentProtocol, UserNotificationIdentifiable {}
+protocol AppUserNotificationProtocol: AppUserNotificationContentProtocol, AppUserNotificationIdentifiable {}
 
-// MARK: - UserNotificationProtocol
-enum UserNotifications: UserNotificationProtocol {
-    case checkLastPath
-    
-    var content: UNNotificationContent {
-        switch self {
-        case .checkLastPath:
-            let content = UNMutableNotificationContent()
-            content.title = "Check for your paths"
-            content.body = "The last path is ready to check"
-            content.sound = .default
-            return content
-        }
-    }
-    
-    var identifier: String {
-        switch self {
-        case .checkLastPath: return "checkLastPath"
-        }
-    }
-}
 
-protocol UserNotificationTriggerProtocol {
+protocol AppUserNotificationTriggerProtocol {
     var trigger: UNNotificationTrigger { get }
 }
 
-enum UserNotificationTrigger: UserNotificationTriggerProtocol {
+enum AppUserNotificationTrigger: AppUserNotificationTriggerProtocol {
     case timeInterval(seconds: Double, repeats: Bool)
     case dateComponent(hour: Int, minute: Int, repeats: Bool)
     
@@ -65,9 +44,9 @@ enum UserNotificationTrigger: UserNotificationTriggerProtocol {
     }
 }
 
-struct UserNotificationRequestBuilder {
-    let notificationKind: UserNotificationProtocol
-    let trigger: UserNotificationTriggerProtocol
+struct AppUserNotificationRequestBuilder {
+    let notificationKind: AppUserNotificationProtocol
+    let trigger: AppUserNotificationTriggerProtocol
     
     func build() -> UNNotificationRequest {
         return UNNotificationRequest(
