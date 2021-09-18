@@ -76,24 +76,21 @@ class MainFlowInteractor: MainFlowLogicProtocol, MainFlowDataSource {
     weak var locationService: LocationService?
     var presenter: MainFlowPresenterProtocol?
     
-    internal var trackingState: MainFlowViewModel.Tracking.State = .off
-    internal var moveEntryModel: MoveEntry?
-    internal var trackPathHistory: [CLLocationCoordinate2D] = []
+    var trackingState: MainFlowViewModel.Tracking.State = .off
+    var moveEntryModel: MoveEntry?
+    var trackPathHistory: [CLLocationCoordinate2D] = []
     
-    internal var subscription: Disposable?
+    var subscription: Disposable?
+    
+    private var disposeBag = DisposeBag()
     
     init(locationService: LocationService) {
         self.locationService = locationService
         configureLocationObserver()
     }
     
-    deinit {
-        subscription?.dispose()
-    }
-    
     private func configureLocationObserver() {
-        subscription = self.locationService?.location.subscribe(onNext: { [weak self] coordinates in
-            guard let coordinates = coordinates else { return }
+        self.locationService?.location.subscribe(onNext: { [weak self] coordinates in
             self?.locationDidUpdated(coordinates)
         }, onError: { error in
             print(error.localizedDescription)
@@ -101,7 +98,7 @@ class MainFlowInteractor: MainFlowLogicProtocol, MainFlowDataSource {
             print("completed")
         }, onDisposed: {
             print("desposed")
-        })
+        }).disposed(by: disposeBag)
     }
     
     

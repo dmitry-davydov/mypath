@@ -15,7 +15,7 @@ class LocationService: NSObject {
     
     let locationManager: CLLocationManager = CLLocationManager()
 
-    let location: BehaviorRelay<CLLocationCoordinate2D?> = BehaviorRelay(value: nil)
+    let location: BehaviorRelay<CLLocationCoordinate2D> = BehaviorRelay(value: CLLocationCoordinate2D())
     
     override private init() {
         super.init()
