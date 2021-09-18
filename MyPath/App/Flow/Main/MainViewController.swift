@@ -57,6 +57,7 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         
         navigationItem.title = "Map"
+        navigationController?.navigationBar.backgroundColor = .systemBackground
         
         switch state {
         case .view(let model):

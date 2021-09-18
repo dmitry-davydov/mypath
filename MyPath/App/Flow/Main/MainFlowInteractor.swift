@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreLocation
+import RxSwift
 
 enum MainFlowViewModel {
     enum Tracking {
@@ -75,19 +76,31 @@ class MainFlowInteractor: MainFlowLogicProtocol, MainFlowDataSource {
     weak var locationService: LocationService?
     var presenter: MainFlowPresenterProtocol?
     
-    internal var trackingState: MainFlowViewModel.Tracking.State = .off
-    internal var moveEntryModel: MoveEntry?
-    internal var trackPathHistory: [CLLocationCoordinate2D] = []
+    var trackingState: MainFlowViewModel.Tracking.State = .off
+    var moveEntryModel: MoveEntry?
+    var trackPathHistory: [CLLocationCoordinate2D] = []
+    
+    var subscription: Disposable?
+    
+    private var disposeBag = DisposeBag()
     
     init(locationService: LocationService) {
         self.locationService = locationService
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(locationDidUpdated), name: Notification.Name.Location.DidUpdated, object: nil)
+        configureLocationObserver()
     }
     
-    deinit {
-        NotificationCenter.default.removeObserver(self)
+    private func configureLocationObserver() {
+        self.locationService?.location.subscribe(onNext: { [weak self] coordinates in
+            self?.locationDidUpdated(coordinates)
+        }, onError: { error in
+            print(error.localizedDescription)
+        }, onCompleted: {
+            print("completed")
+        }, onDisposed: {
+            print("desposed")
+        }).disposed(by: disposeBag)
     }
+    
     
     func request(_ request: MainFlowViewModel.Location.RequestCurrent) {
         
@@ -144,20 +157,16 @@ class MainFlowInteractor: MainFlowLogicProtocol, MainFlowDataSource {
             )
         )
     }
-    
-    //MARK: - NotificationCenter Observers
-    @objc private func locationDidUpdated(_ notification: NSNotification) {
-        
-        guard let lat = notification.userInfo?["lat"] as? CLLocationDegrees,
-              let lon = notification.userInfo?["lon"] as? CLLocationDegrees else { return }
+
+    private func locationDidUpdated(_ coodrinates: CLLocationCoordinate2D) {
         
         if trackingState == .on {
             
             try! RealmManager.shared.db.write({
                 moveEntryModel?.pathList.append(
                     MoveEntryPath(
-                        latitude: Double(lat),
-                        longitude: Double(lon),
+                        latitude: Double(coodrinates.latitude),
+                        longitude: Double(coodrinates.longitude),
                         date: Date()
                     )
                 )
@@ -166,8 +175,8 @@ class MainFlowInteractor: MainFlowLogicProtocol, MainFlowDataSource {
         
         presenter?.present(
             response: MainFlowViewModel.Location.ResponseCurrent(
-                latitude: lat,
-                longitude: lon
+                latitude: coodrinates.latitude,
+                longitude: coodrinates.longitude
             )
         )
     }

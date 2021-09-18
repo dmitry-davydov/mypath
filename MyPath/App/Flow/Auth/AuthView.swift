@@ -7,6 +7,8 @@
 
 import UIKit
 import SnapKit
+import RxSwift
+import RxCocoa
 
 protocol AuthViewDelegateProtocol: AnyObject {
     func viewOnLogin(email: String, password: String)
@@ -44,7 +46,7 @@ final class AuthView: UIView {
     }()
     
     private let loginButton: UIButton = {
-        let view = UIButton(type: .system)
+        let view = AppUIButton(type: .system)
         view.setTitle("Login", for: .normal)
         view.addTarget(self, action: #selector(onLoginTap), for: .touchUpInside)
         
@@ -52,21 +54,22 @@ final class AuthView: UIView {
     }()
     
     private let signUpButton: UIButton = {
-        let view = UIButton(type: .system)
-        view.setTitle("SignUp", for: .normal)
+        let view = AppUIButton(type: .system)
+        view.setTitle("Sign Up", for: .normal)
         view.addTarget(self, action: #selector(onSignUpTap), for: .touchUpInside)
         
         return view
     }()
     
     private let rememberPasswordButton: UIButton = {
-        let view = UIButton(type: .system)
-        view.setTitle("Remember password", for: .normal)
+        let view = AppUIButton(type: .system)
+        view.setTitle("Reset password", for: .normal)
         view.addTarget(self, action: #selector(onRememberPasswordTap), for: .touchUpInside)
         
         return view
     }()
     
+    private var loginButtonDisposable: Disposable?
     private let scrollView = UIScrollView(frame: .zero)
     
     // MARK: - View Delegate
@@ -76,10 +79,15 @@ final class AuthView: UIView {
         super.init(frame: frame)
         
         setupView()
+        configureViewLogic()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    deinit {
+        loginButtonDisposable?.dispose()
     }
     
     private func setupView() {
@@ -111,12 +119,12 @@ final class AuthView: UIView {
         
         loginButton.snp.makeConstraints { make in
             make.centerX.equalTo(self.snp.centerX)
-            make.leading.trailing.equalToSuperview().inset(80)
+            make.leading.trailing.equalToSuperview().inset(160)
             make.top.equalTo(passwordView.snp.bottom).offset(16)
         }
         
         signUpButton.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(80)
+            make.leading.trailing.equalToSuperview().inset(160)
             make.centerX.equalTo(self.snp.centerX)
             make.top.equalTo(loginButton.snp.bottom).offset(8)
         }
@@ -128,6 +136,22 @@ final class AuthView: UIView {
         }
     }
     
+    private func configureViewLogic() {
+
+        loginButtonDisposable = Observable
+            .combineLatest(
+                emailView.rx.text,
+                passwordView.rx.text
+            )
+            .map({ (email, password) in
+                guard let email = email, let password = password else { return false }
+                
+                return !email.isEmpty && !password.isEmpty
+            })
+            .bind { [weak loginButton] inputValid in
+                loginButton?.isEnabled = inputValid
+            }
+    }
     
     // MARK: - Actions
     @objc private func onLoginTap(_ sender: UIButton) {

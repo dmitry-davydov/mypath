@@ -42,7 +42,7 @@ class ResetPasswordView: UIView {
     }()
     
     private let resetPasswordButton: UIButton = {
-        let view = UIButton(type: .system)
+        let view = AppUIButton(type: .system)
         view.setTitle("Reset password", for: .normal)
         view.addTarget(self, action: #selector(onResetPasword), for: .touchUpInside)
         
@@ -50,8 +50,8 @@ class ResetPasswordView: UIView {
     }()
     
     private let signInButton: UIButton = {
-        let view = UIButton(type: .system)
-        view.setTitle("SignIn", for: .normal)
+        let view = AppUIButton(type: .system)
+        view.setTitle("Sign In", for: .normal)
         view.addTarget(self, action: #selector(onSignInTap), for: .touchUpInside)
         
         return view
@@ -105,7 +105,7 @@ class ResetPasswordView: UIView {
         }
         
         signInButton.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(80)
+            make.leading.trailing.equalToSuperview().inset(160)
             make.centerX.equalTo(self.snp.centerX)
             make.top.equalTo(resetPasswordButton.snp.bottom).offset(8)
         }
