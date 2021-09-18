@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A04BFD126F632600054056E /* UserNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A04BFD026F632600054056E /* UserNotificationManager.swift */; };
+		0A04BFD426F63EB00054056E /* UserNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A04BFD326F63EB00054056E /* UserNotifications.swift */; };
 		0A387BD626D1190B008434E9 /* MoveEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A387BD526D1190B008434E9 /* MoveEntry.swift */; };
 		0A38C66826E373D20019D482 /* AppUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A38C66726E373D20019D482 /* AppUIButton.swift */; };
 		0A62A38C26DA34A0001A1268 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A62A38B26DA34A0001A1268 /* User.swift */; };
@@ -66,6 +68,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A04BFD026F632600054056E /* UserNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotificationManager.swift; sourceTree = "<group>"; };
+		0A04BFD326F63EB00054056E /* UserNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotifications.swift; sourceTree = "<group>"; };
 		0A387BD526D1190B008434E9 /* MoveEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveEntry.swift; sourceTree = "<group>"; };
 		0A38C66726E373D20019D482 /* AppUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUIButton.swift; sourceTree = "<group>"; };
 		0A62A38B26DA34A0001A1268 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -140,6 +144,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A04BFD226F63E9B0054056E /* UserNotifications */ = {
+			isa = PBXGroup;
+			children = (
+				0A04BFD026F632600054056E /* UserNotificationManager.swift */,
+				0A04BFD326F63EB00054056E /* UserNotifications.swift */,
+			);
+			path = UserNotifications;
+			sourceTree = "<group>";
+		};
 		0A387BD426D118CA008434E9 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
@@ -216,6 +229,7 @@
 		0A739F8226CD8C8A00A86505 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				0A04BFD226F63E9B0054056E /* UserNotifications */,
 				0A739F8626CD8F4600A86505 /* Extentions */,
 				0A739F8326CD8C8F00A86505 /* Location */,
 				0ADB959726D13BD200CABAA4 /* RealmManager.swift */,
@@ -528,6 +542,7 @@
 				0A739F8D26CD93C200A86505 /* MainFlowFactory.swift in Sources */,
 				0A62A3B426DA7FBD001A1268 /* ResetPasswordView.swift in Sources */,
 				0A62A39826DA43A4001A1268 /* AuthModels.swift in Sources */,
+				0A04BFD126F632600054056E /* UserNotificationManager.swift in Sources */,
 				0A62A3BF26DA8FD6001A1268 /* SignUpFlowFactory.swift in Sources */,
 				0A62A39626DA4387001A1268 /* AuthViewController.swift in Sources */,
 				0ADB959226D1207600CABAA4 /* TrackingListInteractor.swift in Sources */,
@@ -558,6 +573,7 @@
 				0A62A3B226DA7E8D001A1268 /* ResetPasswordFlowFactory.swift in Sources */,
 				0A739F8126CD8B9C00A86505 /* MainView.swift in Sources */,
 				0A62A3A026DA50B2001A1268 /* AuthCoordinator.swift in Sources */,
+				0A04BFD426F63EB00054056E /* UserNotifications.swift in Sources */,
 				0A739F7F26CD8ABE00A86505 /* AppConfiguration.swift in Sources */,
 				0A62A3B726DA8C9C001A1268 /* SignUpViewController.swift in Sources */,
 				0ADB958926D11C9600CABAA4 /* TrackingListViewController.swift in Sources */,
