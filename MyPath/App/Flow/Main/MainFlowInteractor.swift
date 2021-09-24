@@ -8,6 +8,7 @@
 import Foundation
 import CoreLocation
 import RxSwift
+import UIKit
 
 enum MainFlowViewModel {
     enum Tracking {
@@ -24,6 +25,16 @@ enum MainFlowViewModel {
                     self = .on
                 }
             }
+        }
+    }
+    
+    enum UserImage {
+        struct Request {}
+        struct Response {
+            let image: UIImage?
+        }
+        struct ViewModel {
+            let image: UIImage
         }
     }
     
@@ -70,6 +81,7 @@ protocol MainFlowLogicProtocol {
     func request(_ request: MainFlowViewModel.Location.RequestStartTracking)
     func request(_ request: MainFlowViewModel.Location.RequestEndTracking)
     func request(_ request: MainFlowViewModel.History.Request)
+    func request(_ request: MainFlowViewModel.UserImage.Request)
 }
 
 class MainFlowInteractor: MainFlowLogicProtocol, MainFlowDataSource {
@@ -83,9 +95,11 @@ class MainFlowInteractor: MainFlowLogicProtocol, MainFlowDataSource {
     var subscription: Disposable?
     
     private var disposeBag = DisposeBag()
-    
-    init(locationService: LocationService) {
+    private let fileStorage: FileStorageProtocol
+    init(locationService: LocationService, fileStorage: FileStorageProtocol) {
         self.locationService = locationService
+        self.fileStorage = fileStorage
+        
         configureLocationObserver()
     }
     
@@ -101,6 +115,17 @@ class MainFlowInteractor: MainFlowLogicProtocol, MainFlowDataSource {
         }).disposed(by: disposeBag)
     }
     
+    func request(_ request: MainFlowViewModel.UserImage.Request) {
+        if let userImage = fileStorage.readUserAvatar() {
+            presenter?.present(response: MainFlowViewModel.UserImage.Response(image: userImage))
+            return
+        }
+        
+        if let userImage = UIImage(named: "avatar") {
+            presenter?.present(response: MainFlowViewModel.UserImage.Response(image: userImage))
+            return
+        }
+    }
     
     func request(_ request: MainFlowViewModel.Location.RequestCurrent) {
         

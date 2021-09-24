@@ -49,6 +49,12 @@
 		0AA4A73826E3636E005AB4EA /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 0AA4A73726E3636E005AB4EA /* RxCocoa */; };
 		0AA4A73A26E3636E005AB4EA /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 0AA4A73926E3636E005AB4EA /* RxRelay */; };
 		0AA4A73C26E3636E005AB4EA /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0AA4A73B26E3636E005AB4EA /* RxSwift */; };
+		0AC986A226FBD5A200016CE9 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC986A126FBD5A200016CE9 /* ProfileViewController.swift */; };
+		0AC986A426FBD5CC00016CE9 /* ProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC986A326FBD5CC00016CE9 /* ProfileInteractor.swift */; };
+		0AC986A626FBD5FD00016CE9 /* ProfileModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC986A526FBD5FD00016CE9 /* ProfileModels.swift */; };
+		0AC986A826FBD7DE00016CE9 /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC986A726FBD7DE00016CE9 /* ProfilePresenter.swift */; };
+		0AC986AA26FD0C5B00016CE9 /* ProfileFlowFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC986A926FD0C5B00016CE9 /* ProfileFlowFactory.swift */; };
+		0AC986AC26FD1D8600016CE9 /* FileStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC986AB26FD1D8600016CE9 /* FileStorage.swift */; };
 		0AD5B24D26CD8600006C7AD3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD5B24C26CD8600006C7AD3 /* AppDelegate.swift */; };
 		0AD5B24F26CD8600006C7AD3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD5B24E26CD8600006C7AD3 /* SceneDelegate.swift */; };
 		0AD5B25126CD8600006C7AD3 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD5B25026CD8600006C7AD3 /* MainViewController.swift */; };
@@ -107,6 +113,12 @@
 		0A739F8926CD937100A86505 /* MainFlowInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFlowInteractor.swift; sourceTree = "<group>"; };
 		0A739F8C26CD93C200A86505 /* MainFlowFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFlowFactory.swift; sourceTree = "<group>"; };
 		0A739F8E26CD9D2300A86505 /* MainFlowPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFlowPresenter.swift; sourceTree = "<group>"; };
+		0AC986A126FBD5A200016CE9 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		0AC986A326FBD5CC00016CE9 /* ProfileInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInteractor.swift; sourceTree = "<group>"; };
+		0AC986A526FBD5FD00016CE9 /* ProfileModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModels.swift; sourceTree = "<group>"; };
+		0AC986A726FBD7DE00016CE9 /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
+		0AC986A926FD0C5B00016CE9 /* ProfileFlowFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFlowFactory.swift; sourceTree = "<group>"; };
+		0AC986AB26FD1D8600016CE9 /* FileStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileStorage.swift; sourceTree = "<group>"; };
 		0AD5B24926CD8600006C7AD3 /* MyPath.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyPath.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AD5B24C26CD8600006C7AD3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0AD5B24E26CD8600006C7AD3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -244,6 +256,7 @@
 				0A739F8326CD8C8F00A86505 /* Location */,
 				0ADB959726D13BD200CABAA4 /* RealmManager.swift */,
 				0A62A39D26DA4657001A1268 /* BaseCoordinator.swift */,
+				0AC986AB26FD1D8600016CE9 /* FileStorage.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -273,8 +286,20 @@
 				0A62A3A126DA5270001A1268 /* AuthFlowFactory.swift */,
 				0A62A3B126DA7E8D001A1268 /* ResetPasswordFlowFactory.swift */,
 				0A62A3BE26DA8FD6001A1268 /* SignUpFlowFactory.swift */,
+				0AC986A926FD0C5B00016CE9 /* ProfileFlowFactory.swift */,
 			);
 			path = Factories;
+			sourceTree = "<group>";
+		};
+		0AC986A026FBD59000016CE9 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				0AC986A126FBD5A200016CE9 /* ProfileViewController.swift */,
+				0AC986A326FBD5CC00016CE9 /* ProfileInteractor.swift */,
+				0AC986A526FBD5FD00016CE9 /* ProfileModels.swift */,
+				0AC986A726FBD7DE00016CE9 /* ProfilePresenter.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		0AD5B24026CD8600006C7AD3 = {
@@ -343,6 +368,7 @@
 		0AD5B26326CD8761006C7AD3 /* Flow */ = {
 			isa = PBXGroup;
 			children = (
+				0AC986A026FBD59000016CE9 /* Profile */,
 				0A62A3B526DA8C83001A1268 /* SignUp */,
 				0A62A39126DA38BE001A1268 /* ResetPassword */,
 				0A62A39026DA38B9001A1268 /* Auth */,
@@ -551,12 +577,15 @@
 				0ADB959026D11F4B00CABAA4 /* TrackingListViewModel.swift in Sources */,
 				0A62A3B026DA7D92001A1268 /* RequestPasswordPresenter.swift in Sources */,
 				0A739F8D26CD93C200A86505 /* MainFlowFactory.swift in Sources */,
+				0AC986A426FBD5CC00016CE9 /* ProfileInteractor.swift in Sources */,
 				0A62A3B426DA7FBD001A1268 /* ResetPasswordView.swift in Sources */,
 				0A62A39826DA43A4001A1268 /* AuthModels.swift in Sources */,
 				0A04BFD126F632600054056E /* UserNotificationManager.swift in Sources */,
+				0AC986A226FBD5A200016CE9 /* ProfileViewController.swift in Sources */,
 				0A62A3BF26DA8FD6001A1268 /* SignUpFlowFactory.swift in Sources */,
 				0A62A39626DA4387001A1268 /* AuthViewController.swift in Sources */,
 				0ADB959226D1207600CABAA4 /* TrackingListInteractor.swift in Sources */,
+				0AC986A626FBD5FD00016CE9 /* ProfileModels.swift in Sources */,
 				0A62A38F26DA36B4001A1268 /* AuthService.swift in Sources */,
 				0A739F8826CD8F5F00A86505 /* Notification.Name+.swift in Sources */,
 				0ADB958E26D11E3900CABAA4 /* UITableViewCell+.swift in Sources */,
@@ -569,11 +598,14 @@
 				0A62A39C26DA45CD001A1268 /* AuthFlowPresenter.swift in Sources */,
 				0A387BD626D1190B008434E9 /* MoveEntry.swift in Sources */,
 				0AD5B24D26CD8600006C7AD3 /* AppDelegate.swift in Sources */,
+				0AC986AA26FD0C5B00016CE9 /* ProfileFlowFactory.swift in Sources */,
 				0A739F8A26CD937100A86505 /* MainFlowInteractor.swift in Sources */,
 				0A62A3AA26DA7364001A1268 /* ResetPasswordViewController.swift in Sources */,
 				0A38C66826E373D20019D482 /* AppUIButton.swift in Sources */,
 				0A62A3AC26DA7C97001A1268 /* ResetPasswordModels.swift in Sources */,
+				0AC986AC26FD1D8600016CE9 /* FileStorage.swift in Sources */,
 				0A62A3C126DA90A8001A1268 /* SignUpCoordinator.swift in Sources */,
+				0AC986A826FBD7DE00016CE9 /* ProfilePresenter.swift in Sources */,
 				0A62A39426DA390D001A1268 /* UserRepository.swift in Sources */,
 				0A62A3A226DA5270001A1268 /* AuthFlowFactory.swift in Sources */,
 				0A739F8F26CD9D2300A86505 /* MainFlowPresenter.swift in Sources */,

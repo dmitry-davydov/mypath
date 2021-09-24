@@ -12,13 +12,14 @@ import SnapKit
 protocol MainFlowViewLogic {
     func display(viewModel: MainFlowViewModel.Location.ResponseCurrent)
     func display(viewModel: MainFlowViewModel.History.ViewModel)
+    func display(viewModel: MainFlowViewModel.UserImage.ViewModel)
 }
 
 class MainView: UIView {
     private var mapView = GMSMapView(frame: .zero)
     private var route = GMSPolyline()
     private var routePath = GMSMutablePath()
-    
+    private var marker = GMSMarker(position: CLLocationCoordinate2D(latitude: 0, longitude: 0))
     init() {
         super.init(frame: .zero)
         configureView()
@@ -34,7 +35,7 @@ class MainView: UIView {
         addSubview(mapView)
         
         route.map = mapView
-        
+        marker.map = mapView
         layout()
         
         route.strokeWidth = 4
@@ -53,6 +54,20 @@ class MainView: UIView {
 
 extension MainView: MainFlowViewLogic {
     
+    func display(viewModel: MainFlowViewModel.UserImage.ViewModel) {
+        let imageView = UIImageView(image: viewModel.image)
+        imageView.clipsToBounds = true
+        imageView.layer.cornerRadius = 25
+        imageView.backgroundColor = .white
+        imageView.layer.borderColor = UIColor.black.cgColor
+        imageView.layer.borderWidth = 2
+        imageView.snp.makeConstraints { make in
+            make.width.height.equalTo(50)
+        }
+        marker.iconView = imageView
+        
+    }
+    
     func display(viewModel: MainFlowViewModel.Location.ResponseCurrent) {
         let cameraPosition = GMSCameraPosition(
             latitude: viewModel.latitude,
@@ -62,8 +77,10 @@ extension MainView: MainFlowViewLogic {
 
         mapView.animate(to: cameraPosition)
 
-        routePath.add(CLLocationCoordinate2D(latitude: viewModel.latitude, longitude: viewModel.longitude))
+        let coordinates = CLLocationCoordinate2D(latitude: viewModel.latitude, longitude: viewModel.longitude)
+        routePath.add(coordinates)
         route.path = routePath
+        marker.position = coordinates
     }
     
     func display(viewModel: MainFlowViewModel.History.ViewModel) {

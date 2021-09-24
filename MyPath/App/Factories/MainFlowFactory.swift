@@ -21,7 +21,7 @@ class MainFlowFactory: MainFlowFactoryProtocol {
         presenter.viewController = mainFlowViewController
         
         
-        let interactor = MainFlowInteractor(locationService: LocationService.shared)
+        let interactor = MainFlowInteractor(locationService: LocationService.shared, fileStorage: FileStorage.shared)
         interactor.presenter = presenter
         
         

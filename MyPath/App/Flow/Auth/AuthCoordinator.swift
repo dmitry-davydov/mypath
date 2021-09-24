@@ -9,6 +9,10 @@ import Foundation
 
 final class AuthCoordinator: BaseCoordinator {
     override func start() {
+        
+//        let controller = ProfileFlowFactory().construct()
+//        setAsRoot(controller)
+        
         showSignIn()
     }
     

@@ -11,6 +11,7 @@ protocol MainFlowDisplayLogic: AnyObject {
     func display(viewModel: MainFlowViewModel.Location.ResponseCurrent)
     func display(viewModel: MainFlowViewModel.Tracking.State)
     func display(viewModel: MainFlowViewModel.History.ViewModel)
+    func display(viewModel: MainFlowViewModel.UserImage.ViewModel)
     func displayPreviouseScreen()
 }
 
@@ -89,7 +90,7 @@ class MainViewController: UIViewController {
         navigationItem.leftBarButtonItem = nil
         navigationController?.navigationBar.isUserInteractionEnabled = false
         navigationItem.hidesBackButton = true
-        
+        interactor?.request(MainFlowViewModel.UserImage.Request())
         interactor?.request(MainFlowViewModel.Location.RequestStartTracking(model: model))
     }
     
@@ -120,6 +121,10 @@ extension MainViewController: MainFlowDisplayLogic {
     }
     
     func display(viewModel: MainFlowViewModel.History.ViewModel) {
+        mainView.display(viewModel: viewModel)
+    }
+    
+    func display(viewModel: MainFlowViewModel.UserImage.ViewModel) {
         mainView.display(viewModel: viewModel)
     }
 }

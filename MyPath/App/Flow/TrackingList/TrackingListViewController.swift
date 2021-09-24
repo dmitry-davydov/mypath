@@ -28,6 +28,7 @@ class TrackingListViewController: UIViewController {
     
     var onSelect: ((MainViewController.State) -> Void)?
     var onNewTracking: ((MainViewController.State) -> Void)?
+    var onProfile: (() -> Void)?
     
     // MARK: - Properties
     private lazy var tableView: UITableView = {
@@ -55,6 +56,13 @@ class TrackingListViewController: UIViewController {
             action: #selector(startNewTrackingAction)
         )
         
+        navigationItem.leftBarButtonItem = UIBarButtonItem(
+            title: "Profile",
+            style: .plain,
+            target: self,
+            action: #selector(profileAction)
+        )
+        
         navigationItem.title = "Your tracks"
     }
     
@@ -76,6 +84,10 @@ class TrackingListViewController: UIViewController {
     // MARK: actions
     @objc private func startNewTrackingAction() {
         interactor?.request(TrackingListModel.Track.RequestNewTrack())
+    }
+    
+    @objc private func profileAction() {
+        onProfile?()
     }
 }
 

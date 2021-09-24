@@ -21,7 +21,16 @@ final class TrackingListCoordinator: BaseCoordinator {
             self?.showMap(state: state, rootController: navigationViewController)
         }
         
+        controller.onProfile = { [weak self, unowned navigationViewController] in
+            self?.showProfile(rootController: navigationViewController)
+        }
+        
         setAsRoot(navigationViewController)
+    }
+    
+    private func showProfile(rootController: UINavigationController) {
+        let controller = ProfileFlowFactory().construct()
+        rootController.pushViewController(controller, animated: true)
     }
     
     private func showMap(state: MainViewController.State, rootController: UINavigationController) {
