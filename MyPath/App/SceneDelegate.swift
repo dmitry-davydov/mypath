@@ -39,5 +39,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneDidBecomeActive(_ scene: UIScene) {
         window = workingWindow
         window?.makeKeyAndVisible()
+        
+        UserNotificationManager.shared.remove(by: AppUserNotifications.checkLastPath)
     }
+    
+    func sceneDidEnterBackground(_ scene: UIScene) {
+        print("sceneDidEnterBackground")
+        sendBackUserNotification()
+    }
+    
+    private func sendBackUserNotification() {
+        UserNotificationManager.shared.add(
+            notificationBuilder: AppUserNotificationRequestBuilder(
+                notificationKind: AppUserNotifications.checkLastPath,
+                trigger: AppUserNotificationTrigger.timeInterval(seconds: 30, repeats: false)
+            )
+        )
+    }
+    
 }
