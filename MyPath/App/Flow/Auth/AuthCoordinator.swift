@@ -18,8 +18,10 @@ final class AuthCoordinator: BaseCoordinator {
         controller.onRememberPassword = { [weak self] in
             let coordinator = ResetPasswordCoordinator()
             
-            coordinator.onFinishFlow = { [weak self] in
-                self?.removeDependency(coordinator)
+            coordinator.onFinishFlow = { [weak self, weak coordinator] in
+                if let coordinator = coordinator {
+                    self?.removeDependency(coordinator)
+                }
                 
                 self?.start()
             }
@@ -39,8 +41,10 @@ final class AuthCoordinator: BaseCoordinator {
             let coordinator = SignUpCoordinator()
             self?.addDependency(coordinator)
             
-            coordinator.onFinishFlow = { [weak self] in
-                self?.removeDependency(coordinator)
+            coordinator.onFinishFlow = { [weak self, weak coordinator] in
+                if let coordinator = coordinator {
+                    self?.removeDependency(coordinator)
+                }
                 
                 self?.start()
             }
